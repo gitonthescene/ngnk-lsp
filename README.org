@@ -1,9 +1,9 @@
 * ngnk-lsp
-  A barebones LSP server for [[https://ngn.codeberg.page][ngn/k]].
+  A barebones [[https://microsoft.github.io/language-server-protocol/][LSP]] server for [[https://ngn.codeberg.page][ngn/k]].
 
   This is mostly just an experiment, but there's room for growth.
   Currently built on top of [[https://pygls.readthedocs.io/en/latest/][pygls]], the only service it currently
-  offers is basic semantic highlighting.  What's potentially
+  offers is basic [[https://microsoft.github.io/language-server-protocol/specification#textDocument_semanticTokens][semantic highlighting]].  What's potentially
   interesting is that semantic highlighting is done through ngn/k's
   [[https://github.com/ktye/i/blob/master/%2B/k.h][ffi interface]], and the actual parsing of the source to calculate
   tokens is done with a script written in K.
