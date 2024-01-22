@@ -1,0 +1,43 @@
+* ngnk_lsp
+  A barebones LSP server for [[https://ngn.codeberg.page][ngn/k]].
+
+  This is mostly just an experiment, but there's room for growth.
+  Currently built on top of [[https://pygls.readthedocs.io/en/latest/][pygls]], the only service it currently
+  offers is basic semantic highlighting.  What's potentially
+  interesting is that semantic highlighting is done through ngn/k's
+  [[https://github.com/ktye/i/blob/master/%2B/k.h][ffi interface]], and the actual parsing of the source to calculate
+  tokens is done with a script written in K.
+
+** Requirements
+  - [[https://python-poetry.org][poetry]] - This is mostly used for packaging
+  - ngn/k  - Needed to build the ffi interface library
+
+** Quick start
+  Building ~libk.so~ or ~libk.dylib~ is mostly left as an exercise to
+  the reader.  See the [[https://codeberg.org/ngn/k/src/branch/master/makefile][makefile]] for a head start.  Ideally it would be
+  as simple as the following:
+
+  : make libk.so
+
+  But currently there aren't targets for Darwin and you may run into
+  issues for your system.  I was mostly able to get away with
+  replacing ~-shared~ with ~-dynamiclib -install_name libk.dylib~ to
+  build on my Mac laptop.
+
+  Once built you want to make sure it's visible from whereever you
+  fire up the server, and then run ~poetry run python ngnklsp.py~ from
+  the directory containing the project.  I've set ~DYLD_LIBRARY_PATH~
+  in a startup script.
+
+** Connecting to your client
+  Also left as an exercise to the reader.  :)
+
+  I'm happy to post references to relevant info if anyone cares to
+  submit a PR.  Here's what I followed to have it setup on Emacs.
+
+  - [[https://emacs-lsp.github.io/lsp-mode/page/adding-new-language/][Adding a new language server]]
+
+** What's next?
+  Basically left up to the community.  If there's interest I may work
+  on it further or someone may want to take this as a starting point
+  or inspiration or whatever.

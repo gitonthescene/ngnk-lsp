@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "ngnk-lsp"
+version = "0.1.0"
+description = ""
+authors = ["Douglas Mennella <douglas.mennella@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pygls = "^1.2.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
