@@ -50,7 +50,7 @@ def convert(api, factor):
     """Convert bytearrays into k values."""
     def fn(val, sz):
         dsz = sz * factor
-        return k.KC((c.c_char*dsz).from_buffer(val), sz)
+        return api((c.c_char*dsz).from_buffer(val), sz)
     return fn
 
 
