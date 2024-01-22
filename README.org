@@ -1,4 +1,4 @@
-* ngnk_lsp
+* ngnk-lsp
   A barebones LSP server for [[https://ngn.codeberg.page][ngn/k]].
 
   This is mostly just an experiment, but there's room for growth.
