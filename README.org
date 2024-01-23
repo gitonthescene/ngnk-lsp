@@ -35,7 +35,7 @@
   I'm happy to post references to relevant info if anyone cares to
   submit a PR.  Here's what I followed to have it setup on Emacs.
 
-  - [[https://emacs-lsp.github.io/lsp-mode/page/adding-new-language/][Adding a new language server]]
+  - [[https://emacs-lsp.github.io/lsp-mode/page/adding-new-language/][Adding a new language server]] ( I use [[https://github.com/gitonthescene/ngnk-mode][ngnk-mode]]. )
 
 ** What's next?
   Basically left up to the community.  If there's interest I may work
