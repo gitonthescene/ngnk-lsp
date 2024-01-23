@@ -17,11 +17,11 @@ T:(" .SsNQE"
    "qXXQXXX"
    "EQQQQQQ")
 
-C:@[1+&256;"/ \n\"\\";:;2_!#c:*T]
+C:@[&256;"/ \n\"\\";:;1_!#c:1_*T]
 TT:(s:1_*+T)?(1_'1_T)
 
 nl:"\n"=
-prs:{(s?"N"){TT[x;y-1]}\C@x}
+prs:{(s?"N"){TT[x;y]}\C@x}
 blk:{0N 2#&~0=':(~^(s?x)?y),0}
 cmts:{(blk["cefgC";x]),\:`comment`}
 qtes:{(0 1+/:blk["QEq";x]),\:`string`}
