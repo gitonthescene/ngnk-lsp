@@ -29,4 +29,4 @@ qtes:{(0 1+/:blk["QEq";x]),\:`string`}
 pos:{l,''y-1+(-1,x)@l:(-1,x)'y}           / pos[nl;pos] -> col,lineno
 tkn0:{*|{(r;y[1],,/((+(d;r))@'0,~~*d:(r:pos[x;*z])-*y;--/2#z;0^lgd?'-2#z))}[x]/[(0 0;!0);y]}
 
-tkn:{nl:&"\n"=x;ts:,/(cmts;qtes)@\:prs[x];tkn0[nl;@/1<:\ts]}
+tkn:{n:&nl@x;ts:,/(cmts;qtes)@\:prs[x];tkn0[n;@/1<:\ts]}
