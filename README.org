@@ -17,15 +17,19 @@
   the reader.  See the [[https://codeberg.org/ngn/k/src/branch/master/makefile][makefile]] for a head start.  Ideally it would be
   as simple as the following:
 
-  : make libk.so
+  : $ make libk.so
 
   But currently there aren't targets for Darwin and you may run into
   issues for your system.  I was mostly able to get away with
   replacing ~-shared~ with ~-dynamiclib -install_name libk.dylib~ to
   build on my Mac laptop.
 
+  Next you need to build the poetry project like so:
+  : $ poetry build
+  : $ poetry install
+  
   Once built you want to make sure it's visible from whereever you
-  fire up the server, and then run ~poetry run python ngnklsp.py~ from
+  fire up the server, and then run ~poetry run ngnklsp~ from
   the directory containing the project.  I've set ~DYLD_LIBRARY_PATH~
   in a startup script.
 

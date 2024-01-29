@@ -3,7 +3,7 @@
 import logging
 from pygls.server import LanguageServer
 from lsprotocol import types as lsp
-import semantic
+import ngnk_lsp.semantic as semantic
 
 logging.basicConfig(filename='pygls.log', filemode='w', level=logging.DEBUG)
 

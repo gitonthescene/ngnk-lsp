@@ -1,11 +1,13 @@
-import kapi as k
+import ngnk_lsp.kapi as k
 import json
+from   importlib import resources
 
 
 def init():
     """Load K interface to semantic parsing."""
     # import semantic.k
-    k.Kx("\\l semantic.k", ())
+    with resources.as_file(resources.files().joinpath("semantic.k")) as semantick:
+        k.Kx("\\l "+str(semantick), ())
 
     # load legend
     legend = k.CK(k.Kx("legend", ()))
