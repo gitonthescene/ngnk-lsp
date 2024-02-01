@@ -34,7 +34,7 @@ G:("\"\\/\n ",(ds;as;"abcdef"),"0xN.";"QESNbDAHZxnd")
 s:1_*+T
 
 nl:"\n"=
-prs:{(s?"n"){TT[x;y]}\C@x}
+prs:{(s?"n"){TT[x;y]}\0^C@x}
 blk:{0N 2#&~0=':(~^(s?x)?y),0}
 cmts:{(blk["cefgC";x]),\:`comment`}
 qtes:{(blk["QEq";x]),\:`string`}
