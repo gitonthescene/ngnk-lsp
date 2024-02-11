@@ -6,7 +6,7 @@ from   importlib import resources
 def init():
     """Load K interface to semantic parsing."""
     # import semantic.k
-    with resources.as_file(resources.files().joinpath("semantic.k")) as semantick:
+    with resources.as_file(resources.files("ngnk_lsp").joinpath("semantic.k")) as semantick:
         k.Kx("\\l "+str(semantick), ())
 
     # load legend
