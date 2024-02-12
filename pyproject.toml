@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ngnk-lsp"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
 authors = ["Douglas Mennella <douglas.mennella@gmail.com>"]
 readme = "README.org"
@@ -8,6 +8,7 @@ readme = "README.org"
 [tool.poetry.dependencies]
 python = "^3.11"
 pygls = "^1.2.1"
+importlib-resources = { version = "^6.1.1", python = "<3.12" }
 
 [tool.poetry.scripts]
 ngnklsp = "ngnk_lsp:main"

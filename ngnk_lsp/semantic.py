@@ -1,13 +1,18 @@
 import ngnk_lsp.kapi as k
 import json
-from   importlib import resources
+import sys
+
+if (sys.version_info.major, sys.version_info.minor) >= (3, 12):
+    from importlib.resources import files, as_file
+else:
+    from importlib_resources import files, as_file
 
 
 def init():
     """Load K interface to semantic parsing."""
     # import semantic.k
-    with resources.as_file(resources.files().joinpath("semantic.k")) as semantick:
-        k.Kx("\\l "+str(semantick), ())
+    with as_file(files().joinpath("semantic.k")) as semantick:
+        k.Kx("\\l " + str(semantick), ())
 
     # load legend
     legend = k.CK(k.Kx("legend", ()))
