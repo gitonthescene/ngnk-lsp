@@ -52,4 +52,5 @@ syms:{(blk["prstu";x]),\:`label`}
 pos:{l,''y-1+(-1,x)@l:(-1,x)'y}           / pos[nl;pos] -> col,lineno
 tkn0:{*|{(r;y[1],,/((+(d;r))@'0,~~*d:(r:pos[x;*z])-*y;--/2#z;0^lgd?'-2#z))}[x]/[(0 0;!0);y]}
 
-tkn:{n:&nl@x;ts:,/(cmts;qtes;chrs;vars;nums;syms)@\:prs[x];.[tkn0;(n;@/1<:\ts);()]}
+tkn1:{n:&nl@x;ts:,/(cmts;qtes;chrs;vars;nums;syms)@\:prs[x];.[tkn0;(n;@/1<:\ts);()]}
+tkn:{tkn1@x@-1_((+/1(!#:)\1+0 192 224 240'256!x)@)\0}
