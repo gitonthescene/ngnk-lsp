@@ -1,3 +1,6 @@
+\l import.k
+(.`imp)[`u;"utils.k"]
+
 typ:("string";"comment";"variable";"number";"label")
 mod:()
 
@@ -39,7 +42,7 @@ G:("\"\\/\n `",(ds;as;"abcdef"),"0xN.";"QESNbsDAHZxnd")
 (C;TT):sm[G;T]
 s:1_*+T
 
-nl:"\n"=
+nl:|/"\r\n"=\:
 prs:{(s?"n"){TT[x;y]}\0^C@x}
 blk:{0N 2#&~0=':(~^(s?x)?y),0}
 cmts:{(blk["cefgC";x]),\:`comment`}
@@ -49,8 +52,8 @@ vars:{(blk[,"I";x]),\:`variable`}
 nums:{(((s?"i")=x@1+*:')_blk["dFhm";x]),\:`number`}
 syms:{(blk["prstu";x]),\:`label`}
 
-pos:{l,''y-1+(-1,x)@l:(-1,x)'y}           / pos[nl;pos] -> col,lineno
-tkn0:{*|{(r;y[1],,/((+(d;r))@'0,~~*d:(r:pos[x;*z])-*y;--/2#z;0^lgd?'-2#z))}[x]/[(0 0;!0);y]}
+pos:{*+(n;-1+-/-1^x@(z;y@n:y'z))}           / pos[nl;pos] -> lineno,col
+tkn0:{*|{(r;y[1],,/((+(d;r))@'0,~~*d:-y[0]-r:x[*z];--/2#z;0^lgd?'-2#z))}[x]/[(0 0;!0);y]}
 
-tkn1:{n:&nl@x;ts:,/(cmts;qtes;chrs;vars;nums;syms)@\:prs[x];.[tkn0;(n;@/1<:\ts);()]}
-tkn:{tkn1@x@-1_((+/1(!#:)\1+0 192 224 240'256!x)@)\0}
+tkn1:{n@:??/2#,x@n:-1,&nl@y;ts:,/(cmts;qtes;chrs;vars;nums;syms)@\:prs[y];.[tkn0;(pos[x;n];@/1<:\ts);()]}
+tkn:{tkn1[u.utf16pos[x;u.pos@x];x]}
