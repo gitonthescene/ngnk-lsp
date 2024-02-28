@@ -55,5 +55,6 @@ syms:{(blk["prstu";x]),\:`label`}
 pos:{*+(n;-1+-/-1^x@(z;y@n:y'z))}           / pos[nl;pos] -> lineno,col
 tkn0:{*|{(r;y[1],,/((+(d;r))@'0,~~*d:-y[0]-r:x[*z];--/2#z;0^lgd?'-2#z))}[x]/[(0 0;!0);y]}
 
-tkn1:{n@:??/2#,x@n:-1,&nl@y;ts:,/(cmts;qtes;chrs;vars;nums;syms)@\:prs[y];.[tkn0;(pos[x;n];@/1<:\ts);()]}
-tkn:{tkn1[u.utf16pos[x;u.pos@x];x]}
+tkn1:{n@:??/2#,x@n:-1,&nl@y;ts:,/(cmts;qtes;chrs;vars;nums;syms)@\:prs[y];tkn0[pos[x;n];@/1<:\ts]}
+tkn2:{tkn1[u.utf16pos[x;u.pos@x];x]}
+tkn:{.[tkn2;,x;()]}
