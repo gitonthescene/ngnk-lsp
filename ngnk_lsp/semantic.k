@@ -1,6 +1,3 @@
-\l import.k
-(.`imp)[`u;"utils.k"]
-
 typ:("string";"comment";"variable";"number";"label")
 mod:()
 
@@ -42,7 +39,6 @@ G:("\"\\/\n `",(ds;as;"abcdef"),"0xN.";"QESNbsDAHZxnd")
 (C;TT):sm[G;T]
 s:1_*+T
 
-nl:|/"\r\n"=\:
 prs:{(s?"n"){TT[x;y]}\0^C@x}
 blk:{0N 2#&~0=':(~^(s?x)?y),0}
 cmts:{(blk["cefgC";x]),\:`comment`}
@@ -52,9 +48,15 @@ vars:{(blk[,"I";x]),\:`variable`}
 nums:{(((s?"i")=x@1+*:')_blk["dFhm";x]),\:`number`}
 syms:{(blk["prstu";x]),\:`label`}
 
-pos:{*+(n;-1+-/-1^x@(z;y@n:y'z))}           / pos[nl;pos] -> lineno,col
 tkn0:{*|{(r;y[1],,/((+(d;r))@'0,~~*d:-y[0]-r:x[*z];--/2#z;0^lgd?'-2#z))}[x]/[(0 0;!0);y]}
 
-tkn1:{n@:??/2#,x@n:-1,&nl@y;ts:,/(cmts;qtes;chrs;vars;nums;syms)@\:prs[y];tkn0[pos[x;n];@/1<:\ts]}
-tkn2:{tkn1[u.utf16pos[x;u.pos@x];x]}
+nl:|/"\r\n"=\:
+no:{n@??/2#,x@n:-1,&nl@y}                   / no[offs;txt]     -> nl offs
+o2p:{*+(n;-1+-/-1^x@(z;y@n:y'z))}           / o2p[offs;nl;off] -> lineno,col
+p2o:{z+1+x@y}                               / p2o[nl;line;col] -> off
+off:{@[&#x;(-2_((+/1(!#:)\1+4!1+0xc0e0f000'x)@)\0;&(!0),("\n\r"~,)':x);:;1 0]}
+utf16off:{{-1_@[y,0;i+1+4!p;+;3=p:1+0xc0e0f000'x@i:-1+&<':y]}[x;off@x]}
+
+tkn1:{n:no[x;y];ts:,/(cmts;qtes;chrs;vars;nums;syms)@\:prs[y];tkn0[o2p[x;n];@/1<:\ts]}
+tkn2:{tkn1[-1+\utf16off[x];x]}
 tkn:{.[tkn2;,x;()]}
