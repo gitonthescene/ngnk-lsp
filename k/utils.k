@@ -6,7 +6,7 @@ rd:{1:(0;0,x)}
 rhdr0:{r:1(0,/:*'&'":"=)\-2_'1_-1_(~"\r\n"~)gl\();!/+_'/|r}
 rhdr:rhdr0 / Should catch and deal with errors
 
-whdr:{,/(": "/("Content-length";$x);""),\:"\r\n"}
+whdr:{,/(": "/("Content-Length";$x);""),\:"\r\n"}
 msg:{$[~#ms:(~#:')_x;(); |/`exit~/:ms;`exit;whdr[#t],t:json.dmp@((::;*:)(1=#x))@(!/+:)'ms]}
 
 enm:{*(x~/:@[;`name]')#y[`enumerations]}
