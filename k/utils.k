@@ -3,7 +3,7 @@
 
 gl:{(~"\n"=*|:){x,1:(0;!2)}/""}
 rd:{1:(0;0,x)}
-rhdr0:{r:1(0,/:*'&'":"=)\-2_'1_-1_(~"\r\n"~)gl\();!/+_'/|r}
+rhdr0:{r:1(0,/:*'&'":"=)\-2_'1_-1_(~"\r\n"~)gl\();!/(_:;::)@'+_'/|r}
 rhdr:rhdr0 / Should catch and deal with errors
 
 whdr:{,/(": "/("Content-Length";$x);""),\:"\r\n"}
