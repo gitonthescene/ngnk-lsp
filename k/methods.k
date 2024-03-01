@@ -7,16 +7,13 @@ LANGID:"ngnklsp"
 SERVERINFO:("name";"version")!(LANGID;"0.0.0")
 
 CAP:json.prs@1:"cap.json"
-semcap:{(,"legend")!,("tokenTypes";"tokenModifiers")!$sem.lgd}
+semcap:{("legend";"full")!(("tokenTypes";"tokenModifiers")!$sem.lgd;`true)}
 tdscap:{CAP["textDocumentSync"]}
 poscap:{CAP["positionEncoding"]}
 
-/
+
 cap:{!/(("positionEncoding";"semanticTokensProvider";"textDocumentSync")
         (poscap[x]; semcap[x]; tdscap[x]))}
-\
-cap:{!/(("positionEncoding";"textDocumentSync")
-        (poscap[x]; tdscap[x]))}
 
 stub:{()}
 initialize:{("capabilities";"serverInfo")!(cap[x];SERVERINFO)}
@@ -31,5 +28,8 @@ didchg:{d:x"textDocument";$[*^(!DOCS)?d@:"uri";`err@"stub";]; do:DOCS@d
                     r:$[~/r;r;0 1+0^*'1|:\&</r>\:os]
                     x?[;r;]'1(u.utf16off@)\y["text"]}/x"contentChanges";()}
 
-LKUP:!/(("textDocument/didOpen";"textDocument/didChange";"$/cancelRequest")
-        (didopn;didchg;stub))
+semtok:{d:x"textDocument";$[ \*^(!DOCS)?d@:"uri";`err@"stub";]; doc:DOCS@d
+        (,"data")!,sem.tkn[(doc 0; -1+\doc 1)]}
+
+LKUP:!/(("textDocument/didOpen";"textDocument/didChange";"$/cancelRequest";"textDocument/semanticTokens/full")
+        (didopn;didchg;stub;semtok))

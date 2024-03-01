@@ -53,6 +53,5 @@ syms:{(blk["prstu";x]),\:`label`}
 
 tkn0:{*|{(r;y[1],,/((+(d;r))@'0,~~*d:-y[0]-r:x[*z];--/2#z;0^lgd?'-2#z))}[x]/[(0 0;!0);y]}
 
-tkn1:{n:no[x;y];ts:,/(cmts;qtes;chrs;vars;nums;syms)@\:prs[y];tkn0[u.o2p[x;n];@/1<:\ts]}
-tkn2:{tkn1[-1+\u.utf16off[x];x]}
-tkn:{.[tkn2;,x;()]}
+tkn1:{n:u.no[x;y];ts:,/(cmts;qtes;chrs;vars;nums;syms)@\:prs[y];tkn0[u.o2p[x;n];@/1<:\ts]}
+tkn:{.[tkn1;|x;()]}
