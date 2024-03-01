@@ -13,6 +13,16 @@
   - ngn/k  - Needed to build the ffi interface library
 
 ** Quick start
+  There is now a pure ngn/k implementation of this LSP, under the ~k~
+  directory.  It's made up of several files which import each other
+  with relative paths and thus needs to be run from the directory
+  containing all of them.  Other than that, that's it.  Just run
+  ~lsp.k~ like so:
+
+  : $ k lsp.k
+
+  The rest of the document describes running the ~pygls~ version.
+
   Building ~libk.so~ or ~libk.dylib~ is mostly left as an exercise to
   the reader.  See the [[https://codeberg.org/ngn/k/src/branch/master/makefile][makefile]] for a head start.  Ideally it would be
   as simple as the following:
