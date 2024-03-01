@@ -21,7 +21,8 @@ cap:{!/(("positionEncoding";"textDocumentSync")
 stub:{()}
 initialize:{("capabilities";"serverInfo")!(cap[x];SERVERINFO)}
 initialized:stub
-shutdown:{`exit}
+shutdown:{`null}
+exit:{`exit}
 
 DOCS:()!()
 didopn:{$[LANGID~(doc:x"textDocument")"languageId";DOCS[doc"uri"]:1(u.utf16off@)\doc"text";`err@"stub"];()}
