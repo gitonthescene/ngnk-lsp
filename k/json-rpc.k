@@ -20,7 +20,6 @@ msg:{x}
 
 ie:{err[(x["id"];`null)[y];ec`InvalidRequest;,("message";"invalid request")]}
 
-/ accomodate for parser by forcing symbols and flooring ints
 vld:{$[~*c:~^(!x)?("jsonrpc";"id";"method");0
        (~c[2])|~`C~@x"jsonrpc";0
        c[1]&^`i`C`s?t:@x"id";0
