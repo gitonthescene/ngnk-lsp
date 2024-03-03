@@ -10,9 +10,12 @@ CAP:json.prs@1:"cap.json"
 semcap:{("legend";"full")!(("tokenTypes";"tokenModifiers")!$sem.lgd;`true)}
 tdscap:{CAP["textDocumentSync"]}
 poscap:{CAP["positionEncoding"]}
+diacap:{("interFileDependencies";"workspaceDiagnostics";"identifier")!(`true;`false;LANGID)}
 
-cap:{!/(("positionEncoding";"semanticTokensProvider";"textDocumentSync")
-        (poscap[x]; semcap[x]; tdscap[x]))}
+cap:{!/+(("positionEncoding";poscap[x])
+         ("semanticTokensProvider";semcap[x])
+         ("textDocumentSync";tdscap[x])
+         ("diagnosticProvider";diacap[x]))}
 
 stub:{()}
 initialize:{("capabilities";"serverInfo")!(cap[x];SERVERINFO)}
@@ -38,7 +41,7 @@ DIAG:2e6
 QUEUE:()
 TIMER:0
 flsh:{$[DIAG>-TIMER-n:.`t[];:();];TIMER::n;ret:QUEUE,diag'!DOCS
-      QUEUE::();msg@ret}
+      QUEUE::();,/msg','ret}
 
 diag:{not["textDocument/publishDiagnostics";("uri";"diagnostics")!(x;tabdiag[DOCS@x])]}
 
