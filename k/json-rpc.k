@@ -36,3 +36,4 @@ hdl:{$[~vld[x];:ie[x;*^(!x)?,"id"];];res:(lkup[x])[x"params"];$[^*(!x)?,"id";res
 
 / Maybe wrap in try and return `InternalError on errors that bubble up?
 recv:{$[(::)~r:.[json.prs;,x;{::}];pe[x];~/1_:\@r;msg@,hdl@r;msg@hdl'r]}
+flsh:{}
