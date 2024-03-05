@@ -44,14 +44,14 @@ s:1_*+T
 
 prs:{(s?"n"){TT[x;y]}\0^C@x}
 blk:{0N 2#&~0=':(~^(s?x)?y),0}
-cmts:{(blk["cefgC";x]),\:`comment`}
-qtes:{(blk["QEq";x]),\:`string`}
-chrs:{(-1 0+/:(0#,0 0),blk["ij";x]),\:`string`}
-vars:{(blk[,"I";x]),\:`variable`}
-nums:{(((s?"i")=x@1+*:')_blk["dFhm";x]),\:`number`}
-syms:{(blk["prstu";x]),\:`label`}
+cmts:{(x@blk["cefgC";y]),\:`comment`}
+qtes:{(x@blk["QEq";y]),\:`string`}
+chrs:{(x@-1 0+/:(0#,0 0),blk["ij";y]),\:`string`}
+vars:{(x@blk[,"I";y]),\:`variable`}
+nums:{(x@((s?"i")=y@1+*:')_blk["dFhm";y]),\:`number`}
+syms:{(x@blk["prstu";y]),\:`label`}
 
 tkn0:{*|{(r;y[1],,/((+(d;r))@'0,~~*d:-y[0]-r:x[*z];--/2#z;0^lgd?'-2#z))}[x]/[(0 0;!0);y]}
 
-tkn1:{n:u.no[x;y];ts:,/(cmts;qtes;chrs;vars;nums;syms)@\:prs[y];tkn0[u.o2p[x;n];@/1<:\ts]}
+tkn1:{n:u.no[x;y];ts:,/((cmts;qtes;chrs;vars;nums;syms)@\:x)@\:prs[y];tkn0[u.o2p[x;n];@/1<:\ts]}
 tkn:{.[tkn1;|x;()]}

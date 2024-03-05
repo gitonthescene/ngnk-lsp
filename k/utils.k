@@ -12,7 +12,7 @@ msg:{$[~#ms:(~#:')_x;();|/`exit~/:ms;`exit;whdr[#t],t:json.dmp@((::;*:)(1=#x))@(
 enm:{*(x~/:@[;`name]')#y[`enumerations]}
 
 nl:|/"\r\n"=\:
-no:{n@??/2#,x@n:-1,&nl@y}                   / no[offs;txt]     -> nl offs
+no:{n@??/2#,n:-1^x@-1,&nl@y}                / no[offs;txt]     -> nl offs
 o2p:{*+(n;-1+-/-1^x@(z;y@n:y'z))}           / o2p[offs;nl;off] -> lineno,col
 p2o:{z+1+x@y}                               / p2o[nl;line;col] -> off
 off:{@[&#x;(-2_((+/1(!#:)\1+4!1+0xc0e0f000'x)@)\0;&(!0),("\n\r"~,)':x);:;1 0]}
