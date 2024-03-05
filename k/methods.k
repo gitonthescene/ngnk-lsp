@@ -27,13 +27,13 @@ DOCS:()!()
 didopn:{$[LANGID~(doc:x"textDocument")"languageId";DOCS[doc"uri"]:1(u.utf16off@)\doc"text";`err@"stub"];()}
 didchg:{d:x"textDocument";$[*^(!DOCS)?d@:"uri";`err@"stub";]; do:DOCS@d
         DOCS[d]:do{ r:u.p2o[u.no[os:-1+\x 1;*x]].'+.y["range"]("start";"end")
-                    r:$[~/r;(1+-1^*|os)^os?r;0 1+0^*'1|:\&</r>\:os]
+                    r:$[~/r;(#os)^os?r;0 1+0^*'1|:\&</r>\:os]
                     x?[;r;]'1(u.utf16off@)\y["text"]}/x"contentChanges";()}
 
 semtok:{d:x"textDocument";$[*^(!DOCS)?d@:"uri";`err@"stub";]; doc:DOCS@d
         (,"data")!,sem.tkn[(doc 0; -1+\doc 1)]}
 
-tabs:{u.o2p[off;u.no[off;*x]]''(off:-1+\x[1],1)@1+0N 2#&1_~=':("\t"=x 0),0}
+tabs:{u.o2p[u.no[off;*x]]''(off:-1+\x[1],1)@1+0N 2#&1_~=':("\t"=x 0),0}
 tabdiag:{$[~#t:tabs[x];:()
         ("range";"message";"source")!/:(+("start";"end")!+("line";"character")!/:/:t),\:("tabs forbidden";"ngnklsp")]}
 
