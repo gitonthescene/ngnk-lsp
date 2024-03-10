@@ -37,7 +37,7 @@ tabs:{u.o2p[u.no[off;*x]]''(off:-1+\x[1],1)@1+0N 2#&1_~=':("\t"=x 0),0}
 tabdiag:{$[~#t:tabs[x];:()
         ("range";"message";"source")!/:(+("start";"end")!+("line";"character")!/:/:t),\:("tabs forbidden";"ngnklsp")]}
 
-DIAG:2e6
+DIAG:2e3
 QUEUE:()
 TIMER:0
 flsh:{$[DIAG>-TIMER-n:.`t[];:();];TIMER::n;ret:QUEUE,diag'!DOCS
