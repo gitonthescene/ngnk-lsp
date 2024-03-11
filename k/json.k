@@ -5,11 +5,11 @@ ws:~^"\t\n\r "?
 chkb:{$[(,2)~?(2!!#:)#-':,/x@@[y;]#'=z;;`err@"mismatched brackets"]}
 
 / make sure that keys to dictionaries are strings
-chkds:{$[(,"\"")~?x@y@-1+&":"=x@y;;`err@"keys are strings"]} / ")]} emacs :(
+chkds:{$[~#w:&":"=x@y;;(,"\"")~?x@y@-1+w;;`err@"keys are strings"]} / ")]} emacs :(
 
 / pairs have objects as parents
 / children of objects are pairs
-chko:{$[((,"{")~?x@y@z@":"=x@y)&(,":")~?x@y@(~:)_&~^(&"{"=x@y)?z;;`err@"malformed object"]}
+chko:{$[~#w:&"{"=x@y;;((,"{")~?x@y@z@":"=x@y)&(,":")~?x@y@(~:)_&~^w?z;;`err@"malformed object"]}
 
 pr:{(g;p):0 2\<((2*#x)#!2)+{2}#x;f:&~p;(g@(|\p*!#p)@f)@<g@f};dp:{+/~~,/(x@)\,!#x}
 
