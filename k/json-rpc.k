@@ -1,5 +1,5 @@
 \l import.k
-(.`imp)[`json;"json.k"]
+imp[`json;"json.k"]
 
 ec:!/+((`ParseError          ;-32700)
        (`InvalidRequest      ;-32600)

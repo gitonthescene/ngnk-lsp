@@ -1,5 +1,5 @@
 \l import.k
-(.`imp)[`u;"utils.k"]
+imp[`u;"utils.k"]
 
 typ:("string";"comment";"variable";"number";"label")
 mod:()

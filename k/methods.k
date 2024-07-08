@@ -1,7 +1,7 @@
 \l import.k
-(.`imp)[`sem;"semantic.k"]
-(.`imp)[`json;"json.k"]
-(.`imp)[`u;"utils.k"]
+imp[`sem;"semantic.k"]
+imp[`json;"json.k"]
+imp[`u;"utils.k"]
 
 LANGID:"ngnklsp"
 SERVERINFO:("name";"version")!(LANGID;"0.0.0")

@@ -1,5 +1,5 @@
 \l import.k
-(.`imp)[`json;"json.k"]
+imp[`json;"json.k"]
 
 gl:{(~"\n"=*|:){x,1:(0;!2)}/""}
 rd:{1:(0;0,x)}

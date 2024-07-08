@@ -1,6 +1,6 @@
 \l import.k
 \l json-rpc.k
-(.`imp)[`u;"utils.k"]
+imp[`u;"utils.k"]
 msg:u.msg
 \l methods.k
 
