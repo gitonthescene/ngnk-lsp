@@ -42,13 +42,15 @@ tabdiag:{$[~#t:tabs[x];:()
 DIAG:2e3
 QUEUE:()
 TIMER:0
-flsh:{$[DIAG>-TIMER-n:.`t[];:();];TIMER::n;ret:QUEUE,diag'!DOCS
+flsh:{$[DIAG>-TIMER-n:.`t[];:();];TIMER::n;ret:QUEUE,pubdiag'!DOCS
       QUEUE::();,/msg','ret}
 
-diag:{not["textDocument/publishDiagnostics";("uri";"diagnostics")!(x;tabdiag[DOCS@x])]}
+pubdiag:{not["textDocument/publishDiagnostics";("uri";"diagnostics")!(x;tabdiag[DOCS@x])]}
+diag:{("kind";"items")!("full";tabdiag@DOCS@x["textDocument"]["uri"])}
 
 LKUP:!/+(("textDocument/didOpen";didopn)
          ("textDocument/didChange";didchg)
          ("$/cancelRequest";stub)
          ("textDocument/semanticTokens/full";semtok)
-         ("textDocument/publishDiagnostics";diag))
+         ("textDocument/diagnostic";diag)
+         ("textDocument/publishDiagnostics";pubdiag))
