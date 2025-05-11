@@ -28,7 +28,7 @@ didopn:{$[LANGID~(doc:x"textDocument")"languageId";DOCS[doc"uri"]:1(u.utf16off@)
 didchg:{d:x"textDocument";$[*^(!DOCS)?d@:"uri";`err@"stub";]; do:DOCS@d
         DOCS[d]:do{d:1(u.utf16off@)\y["text"]
                    $[^(!y)?"range";:d;]
-                   r:u.p2o[u.no[os:-1+\x 1;*x]].'+.y["range"]("start";"end")
+                   r:u.p2o[u.no[os:-1+\x 1;*x]].'+(y["range"]("start";"end"))@\:("line";"character")
                    r:$[~/r;(#os)^os?r;0 1+0^*'1|:\&</r>\:os]
                    x?[;r;]'d}/x"contentChanges";()}
 
