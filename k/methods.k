@@ -35,7 +35,7 @@ didchg:{d:x"textDocument";$[*^(!DOCS)?d@:"uri";`err@"stub";]; do:DOCS@d
 semtok:{d:x"textDocument";$[*^(!DOCS)?d@:"uri";`err@"stub";]; doc:DOCS@d
         (,"data")!,sem.tkn[(doc 0; -1+\doc 1)]}
 
-tabs:{u.o2p[u.no[off;*x]]''(off:-1+\x[1],1)@0N 2#_/|1(2!#:)\&~=':("\t"=x 0),0}
+tabs:{u.o2p[u.no[off;*x]]''(off:-1+\x[1],1)@0N 2#&~0=':("\t"=x 0),0}
 tabdiag:{$[~#t:tabs[x];:()
         ("range";"message";"source")!/:(+("start";"end")!+("line";"character")!/:/:t),\:("tabs forbidden";"ngnklsp")]}
 
