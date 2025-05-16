@@ -1,4 +1,4 @@
-\l import.k
+."\\l ",`env[]`KINIT
 imp[`json;"json.k"]
 
 gl:{(~"\n"=*|:){x,1:(0;!2)}/""}

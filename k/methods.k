@@ -1,4 +1,4 @@
-\l import.k
+."\\l ",`env[]`KINIT
 imp[`sem;"semantic.k"]
 imp[`json;"json.k"]
 imp[`u;"utils.k"]
@@ -6,14 +6,16 @@ imp[`u;"utils.k"]
 LANGID:"ngnklsp"
 SERVERINFO:("name";"version")!(LANGID;"0.0.0")
 
-CAP:json.prs@1:"cap.json"
+CAP:json.prs@1:"cap3.json"
 semcap:{("legend";"full")!(("tokenTypes";"tokenModifiers")!$sem.lgd;`true)}
 tdscap:{CAP["textDocumentSync"]}
 poscap:{CAP["positionEncoding"]}
+cmpcap:{CAP["completionProvider"]}
 diacap:{("interFileDependencies";"workspaceDiagnostics";"identifier")!(`true;`false;LANGID)}
 
 cap:{!/+(("positionEncoding";poscap[x])
          ("semanticTokensProvider";semcap[x])
+         ("completionProvider";cmpcap[x])
          ("textDocumentSync";tdscap[x])
          ("diagnosticProvider";diacap[x]))}
 
@@ -35,6 +37,8 @@ didchg:{d:x"textDocument";$[*^(!DOCS)?d@:"uri";`err@"stub";]; do:DOCS@d
 semtok:{d:x"textDocument";$[*^(!DOCS)?d@:"uri";`err@"stub";]; doc:DOCS@d
         (,"data")!,sem.tkn[(doc 0; -1+\doc 1)]}
 
+cmpl:{`null}
+
 tabs:{u.o2p[u.no[off;*x]]''(off:-1+\x[1],1)@0N 2#&~0=':("\t"=x 0),0}
 tabdiag:{$[~#t:tabs[x];:()
         ("range";"message";"source")!/:(+("start";"end")!+("line";"character")!/:/:t),\:("tabs forbidden";"ngnklsp")]}
@@ -52,5 +56,6 @@ LKUP:!/+(("textDocument/didOpen";didopn)
          ("textDocument/didChange";didchg)
          ("$/cancelRequest";stub)
          ("textDocument/semanticTokens/full";semtok)
+         ("textDocument/completion";cmpl)
          ("textDocument/diagnostic";diag)
          ("textDocument/publishDiagnostics";pubdiag))

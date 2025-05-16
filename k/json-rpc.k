@@ -1,4 +1,4 @@
-\l import.k
+."\\l ",`env[]`KINIT
 imp[`json;"json.k"]
 
 ec:!/+((`ParseError          ;-32700)

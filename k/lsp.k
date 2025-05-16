@@ -1,8 +1,8 @@
-\l import.k
-\l json-rpc.k
+."\\l ",`env[]`KINIT
+imp[`;"json-rpc.k"]
 imp[`u;"utils.k"]
 msg:u.msg
-\l methods.k
+imp[`;"methods.k"]
 
 serve:{h:u.rhdr[]
       ret:recv@u.rd@.h["content-length"]

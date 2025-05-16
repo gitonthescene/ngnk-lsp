@@ -1,4 +1,4 @@
-\l import.k
+."\\l ",`env[]`KINIT
 imp[`u;"utils.k"]
 
 typ:("string";"comment";"variable";"number";"label")
