@@ -1,4 +1,4 @@
-imp.imp[`u;"utils.k"]
+imp.ort[`u;"utils.k"]
 
 typ:("string";"comment";"variable";"number";"label")
 mod:()

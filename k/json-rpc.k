@@ -1,4 +1,4 @@
-imp.imp[`json;"json.k"]
+imp.ort[`json;"json.k"]
 
 ec:!/+((`ParseError          ;-32700)
        (`InvalidRequest      ;-32600)

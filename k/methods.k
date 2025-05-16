@@ -1,6 +1,6 @@
-imp.imp[`sem;"semantic.k"]
-imp.imp[`json;"json.k"]
-imp.imp[`u;"utils.k"]
+imp.ort[`sem;"semantic.k"]
+imp.ort[`json;"json.k"]
+imp.ort[`u;"utils.k"]
 
 LANGID:"ngnklsp"
 SERVERINFO:("name";"version")!(LANGID;"0.0.0")
