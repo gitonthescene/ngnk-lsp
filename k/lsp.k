@@ -1,8 +1,8 @@
 ."\\l ",`env[]`KINIT
-imp[`;"json-rpc.k"]
-imp[`u;"utils.k"]
+imp.imp[`;"json-rpc.k"]
+imp.imp[`u;"utils.k"]
 msg:u.msg
-imp[`;"methods.k"]
+imp.imp[`;"methods.k"]
 
 serve:{h:u.rhdr[]
       ret:recv@u.rd@.h["content-length"]

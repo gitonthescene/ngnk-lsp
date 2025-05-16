@@ -1,5 +1,4 @@
-."\\l ",`env[]`KINIT
-imp[`json;"json.k"]
+imp.imp[`json;"json.k"]
 
 ec:!/+((`ParseError          ;-32700)
        (`InvalidRequest      ;-32600)

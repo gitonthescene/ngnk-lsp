@@ -1,5 +1,4 @@
-."\\l ",`env[]`KINIT
-imp[`u;"utils.k"]
+imp.imp[`u;"utils.k"]
 
 typ:("string";"comment";"variable";"number";"label")
 mod:()
