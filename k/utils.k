@@ -1,7 +1,7 @@
 imp.ort[`json;"json.k"]
 
 gl:{(~"\n"=*|:){x,1:(0;!2)}/""}
-rd:{1:(0;0,x)}
+rd:{*|(*:){(x[0]-#r;x[1],r:1:(0;0,x 0))}/(x;"")}
 rhdr0:{r:1(0,/:*'&'":"=)\-2_'1_-1_(~"\r\n"~)gl\();!/(_:;::)@'+_'/|r}
 rhdr:rhdr0 / Should catch and deal with errors
 
